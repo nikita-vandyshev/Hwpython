@@ -1,7 +1,6 @@
 import random
 
 import pytest
-
 from walker_random import WalkerRandom
 
 
