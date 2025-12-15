@@ -7,5 +7,5 @@ from source.heapsort import heapsort
 @given(st.lists(st.integers()))
 def test_heapsort_matches_sorted(xs):
     a = xs[:]
-    heapsort(a)          
+    heapsort(a)
     assert a == sorted(xs)
