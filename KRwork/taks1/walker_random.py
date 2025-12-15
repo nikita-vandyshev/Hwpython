@@ -17,7 +17,7 @@ class WalkerRandom:
             probs.append(float(p))
             total += float(p)
 
-        if abs(total - 1.0) > 0.000001:
+        if abs(total - 1.0) > 1e-6:
             raise ValueError("Sum of probabilities must be 1")
 
         n = len(self.events)
@@ -37,17 +37,17 @@ class WalkerRandom:
 
         while small and large:
             s = small.pop()
-            l = large.pop()
+            big = large.pop()
 
             self.prob[s] = scaled[s]
-            self.alias[s] = l
+            self.alias[s] = big
 
-            scaled[l] = scaled[l] - (1.0 - scaled[s])
+            scaled[big] = scaled[big] - (1.0 - scaled[s])
 
-            if scaled[l] < 1.0:
-                small.append(l)
+            if scaled[big] < 1.0:
+                small.append(big)
             else:
-                large.append(l)
+                large.append(big)
 
         for i in small + large:
             self.prob[i] = 1.0
