@@ -4,6 +4,8 @@ def bubble_sort(arr):
         for j in range(0, n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+
 numbers_input = input("Введите элементы списка через пробел: ")
 numbers = numbers_input.split()
 numbers = [int(x) for x in numbers]
