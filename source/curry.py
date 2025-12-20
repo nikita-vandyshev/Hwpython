@@ -31,11 +31,12 @@ def uncurry(curried_func, arity):
 
 
 if __name__ == "__main__":
+
     def sum3(x, y, z):
         return x + y + z
 
     sum3_c = curry(sum3, 3)
-    print(sum3_c(1)(2)(3)) 
+    print(sum3_c(1)(2)(3))
 
     sum3_u = uncurry(sum3_c, 3)
-    print(sum3_u(1, 2, 3)) 
+    print(sum3_u(1, 2, 3))
